@@ -4,10 +4,10 @@ def get_data(path):
 	starterText = open(path, 'r').read()
 	return starterText
 def word_freq(starterText):
-	changedText = re.sub(r'[;:,\.\(\)\'\"\?\!\-\n]', ' ', starterText) # здесь избавляемся от знаков препинания, переносов и приводим текст к удобоваримому виду;
+	changedText = re.sub(r'[;:,\.\(\)\'\"\?\!\-\n]', ' ', starterText) # swapping punctuation marks with spaces;
 	changedText = changedText.lower()
 	splittedWords = re.split(r' ', changedText)
-	splittedWords = [x for x in splittedWords if x != ''] # создаем список всех слов текста, попутно избавляемся от лишних пробелов; 
+	splittedWords = [x for x in splittedWords if x != ''] # creating word list, deleting excess spaces; 
 	commonWords = collections.Counter(splittedWords).most_common(10) 
 	return commonWords
 a = input(str())
